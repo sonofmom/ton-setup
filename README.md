@@ -1,2 +1,2 @@
-# slim-ton-node
-Collection of scripts to bootstrap TON node without MTC
+# ton-setup
+Set of scripts helping to bootstrap TON node
