@@ -1,0 +1,23 @@
+################################################################################
+# TON systemd service
+#
+# Generated using ton-setup scripts https://github.com/sonofmom/ton-setup
+#
+[Unit]
+Description = ##DESCRIPTION##
+After = network.target
+
+[Service]
+Type = simple
+Restart = always
+RestartSec = 30
+ExecStart=##EXECSTART##
+ExecStopPost = /bin/echo service down
+User = ##USER##
+Group = ##GROUP##
+LimitNOFILE = infinity
+LimitNPROC = infinity
+LimitMEMLOCK = infinity
+
+[Install]
+WantedBy = multi-user.target
