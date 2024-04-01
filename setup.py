@@ -269,7 +269,7 @@ def run():
             'validator_engine_console': "{}/bin/validator-engine-console".format(args.dist_home.rstrip('/')),
             'generate_random_id': "{}/bin/generate-random-id".format(args.dist_home.rstrip('/')),
             'sed': shutil.which('sed'),
-            'cronolog': shutil.which('cronlog')
+            'cronolog': shutil.which('cronolog')
         },
         'users': {
             'install': {
