@@ -15,6 +15,7 @@ import shutil
 import requests
 import random
 import json
+import pathlib
 
 verbosity = None
 def run():
@@ -568,7 +569,7 @@ def run():
                 fw.write(json.dumps(local_config, indent=4))
 
     log(inspect.currentframe().f_code.co_name, 3, "Creating systemd service file")
-    with open('templates/{}.systemd.service'.format(instance_data['mode']), 'r') as fh:
+    with open('{}/templates/{}.systemd.service'.format(pathlib.Path(__file__).parent, instance_data['mode']), 'r') as fh:
         process_args = [instance_data['binaries']['process']] + get_node_params(instance_data=instance_data, first_run=True)
         execstart = " ".join(process_args).strip()
         if instance_data['setup_params']['use_cronolog']:
