@@ -9,8 +9,8 @@ LOG_FILE=$(readlink -f "./ton-build.log")
 BUILD_THREADS=`expr \`cat /proc/cpuinfo | grep processor | wc -l\` - 1`
 BUILD_CONFIG_FLAGS='-DCMAKE_BUILD_TYPE=Release -DTON_USE_JEMALLOC=ON'
 BUILD_MAKE_FLAGS=''
-CC=$(which clang)
-CXX=$(which clang++)
+export CC=$(which clang)
+export CXX=$(which clang++)
 
 usage() {
     BASENAME=$(basename "$0")
