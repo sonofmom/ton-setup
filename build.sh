@@ -6,8 +6,9 @@ REPOSITORY='https://github.com/ton-blockchain/ton.git';
 BRANCH='master';
 CLEAN_FLAG=false;
 LOG_FILE=$(readlink -f "./ton-build.log")
+OPENSSL_PATH='/opt/ton/openssl'
 BUILD_THREADS=`expr \`cat /proc/cpuinfo | grep processor | wc -l\` - 1`
-BUILD_CONFIG_FLAGS='-DCMAKE_BUILD_TYPE=Release -DTON_USE_JEMALLOC=ON'
+BUILD_CONFIG_FLAGS='-DCMAKE_BUILD_TYPE=Release -DTON_USE_JEMALLOC=ON -DOPENSSL_FOUND=1 -DOPENSSL_INCLUDE_DIR=$OPENSSL_PATH/include -DOPENSSL_USE_STATIC_LIBS=TRUE -DOPENSSL_ROOT_DIR=$OPENSSL_PATH -DOPENSSL_SSL_LIBRARY=$OPENSSL_PATH/libssl.a -DOPENSSL_CRYPTO_LIBRARY=$OPENSSL_PATH/libcrypto.a'
 BUILD_MAKE_FLAGS=''
 export CC=$(which clang)
 export CXX=$(which clang++)
